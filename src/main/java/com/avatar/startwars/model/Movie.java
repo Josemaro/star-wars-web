@@ -2,12 +2,18 @@ package com.avatar.startwars.model;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movie {
     public String title;
-    public String episode_id;
+    public int episode_id;
     public String opening_crawl;
     public String director;
     public String producer;
