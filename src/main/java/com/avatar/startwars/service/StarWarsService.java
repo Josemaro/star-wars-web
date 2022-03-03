@@ -14,7 +14,7 @@ public class StarWarsService {
     // https://swapi.dev/
 
     // https://swapi.dev/api/films/
-    UriComponents uri = UriComponentsBuilder.newInstance()
+    UriComponents uriFilms = UriComponentsBuilder.newInstance()
             .scheme("https")
             .host("swapi.dev/")
             .path("api/films/")
