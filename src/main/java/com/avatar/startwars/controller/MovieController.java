@@ -1,6 +1,9 @@
 package com.avatar.startwars.controller;
 
+import java.util.List;
+
 import com.avatar.startwars.model.Movie;
+import com.avatar.startwars.model.People;
 import com.avatar.startwars.service.StarWarsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +24,10 @@ public class MovieController {
     public String buscarPelicula(@PathVariable("id") String id,Model model) throws Exception {
         
         Movie movie = service.getMovie(id);
+        List<People> people =  service.getAllPeople(movie.characters);
         model.addAttribute("movie",movie);
+        model.addAttribute("people",people);
+
         // PokePage pp = service.getPokePage(offset,limit);
         // model.addAttribute("pokePage",pp);
         // ArrayList<Pokemon> pokelist = new ArrayList<Pokemon>();

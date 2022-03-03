@@ -15,17 +15,21 @@
     </head>
 
     <body style="background-color: rgb(208, 247, 211);">
-        title<span></span>${movie.title}
+        title<span></span>  : ${movie.title}
         <br>
-        episode_id<span></span>${movie.episode_id}
+        episode_id<span></span>  : ${movie.episode_id}
         <br>
-        opening_crawl<span></span>${movie.opening_crawl}
+        opening_crawl<span></span>  : ${movie.opening_crawl}
         <br>
-        directorspan</span>${movie.director}
+        directorspan</span>  : ${movie.director}
         <br>
-        producerspan</span>${movie.producer}
+        producerspan</span>  : ${movie.producer}
         <br>
         <br>
-        characters<span></span>${movie.characters}
+        characters<span></span>  : ${movie.characters}
+        characters<span></span>  : ${people.get(0)}
+        \n\n
+        characters<span></span>  : ${people.get(1)}
+        \n\n
     </body>
 </html>
