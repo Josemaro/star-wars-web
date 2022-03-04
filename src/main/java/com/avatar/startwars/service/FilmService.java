@@ -39,8 +39,18 @@ public class FilmService {
         return films;
     }
 
-    public Movie getMovie(String id) {
-        ResponseEntity<Movie> entity = response.getForEntity(uriFilms.toUriString() + id, Movie.class);
+    public List<Movie> getAllFilms(List<String> films) {
+        return films.stream().map(
+                (p) -> getMovie(p, null)).collect(Collectors.toList());
+    }
+
+    public Movie getMovie(String url, String id) {
+        ResponseEntity<Movie> entity;
+        if (id == null) {
+            entity = response.getForEntity(url, Movie.class);
+        } else {
+            entity = response.getForEntity(uriFilms.toUriString() + id, Movie.class);
+        }
         Movie movie = Movie.builder()
                 .title(entity.getBody().getTitle())
                 .episode_id(entity.getBody().getEpisode_id())

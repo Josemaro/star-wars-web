@@ -1,8 +1,8 @@
 <%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<%@ page import="java.util.ArrayList"%>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.List"%>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <style type="text/css">
     @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
@@ -141,6 +141,19 @@
             </form>
         </div>
         <h2>${character.name}</h2>
-
+        <h2>${character.height}</h2>
+        <h2>${character.mass}</h2>
+        <h2>${character.hair_color}</h2>
+        <h2>${character.skin_color}</h2>
+        <h2>${character.eye_color}</h2>
+        <h2>${character.birth_year}</h2>
+        <h2>${character.gender}</h2>
+        <h2>${character.homeworld}</h2>
+        <c:forEach var="i" begin="0" end="${films.size()-1}">
+            <h2>${films[i].title}</h2>
+            <c:set var = "string1" value = "${films[i].url}"/>
+            <c:set var = "string2" value = "${fn:substring(string1, 28, 31)}" />                      
+            <a href='http://localhost:8080/movies/${string2}' class="btn btn-info">Ver Detalle</a>
+        </c:forEach>
     </body>
 </html>

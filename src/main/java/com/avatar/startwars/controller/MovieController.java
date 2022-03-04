@@ -27,7 +27,7 @@ public class MovieController {
     @GetMapping(value = "/{id}")
     public String buscarPelicula(@PathVariable("id") String id, Model model) throws Exception {
 
-        Movie movie = filmService.getMovie(id);
+        Movie movie = filmService.getMovie(null,id);
         List<People> people = peopleService.getAllPeople(movie.characters);
         model.addAttribute("movie", movie);
         model.addAttribute("people", people);

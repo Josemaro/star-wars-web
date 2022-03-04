@@ -1,7 +1,7 @@
 <%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.List"%>
 <style type="text/css"> 
     @import url('//db.onlinewebfonts.com/c/0c724f6aa457310440cf8949c615cbd7?family=Star+Jedi');
@@ -24,12 +24,14 @@
         producerspan</span>  : ${movie.producer}
         <br>
         <br>
-        <c:forEach var="i" begin="0" end="${people.size()}">
+        <c:forEach var="i" begin="0" end="${people.size()-1}">
                 <div class="row">
                     <div class="column">
                         <div class="card">
                             <h2>${people[i].name}</h2>
-                                
+                            <c:set var = "string1" value = "${people[i].url}"/>
+                            <c:set var = "string2" value = "${fn:substring(string1, 29, 31)}" />                      
+                            <a href='http://localhost:8080/people/${string2}' class="btn btn-info">Ver Detalle</a>
                         </div>
                         <!-- ${i} -->
                         <!-- ${pokePage.count/pokePage.results.size()} -->

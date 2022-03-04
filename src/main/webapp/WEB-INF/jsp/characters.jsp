@@ -134,7 +134,7 @@
 <html>
     <body>
         <div class="topnav">
-            <a class="active" href="index">Inicio</a>
+            <a class="active" href="movies">Inicio</a>
             <form class="a" action="pokemon" align="right" style="margin-right: 10px;margin-top: 11px">
               <input type="text" id="name" name="name" placeholder="Nombre o Id" />
               <input type="submit" value="Buscar"/>

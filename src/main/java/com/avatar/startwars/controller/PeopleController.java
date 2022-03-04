@@ -2,6 +2,7 @@ package com.avatar.startwars.controller;
 
 import java.util.List;
 
+import com.avatar.startwars.model.Movie;
 import com.avatar.startwars.model.People;
 import com.avatar.startwars.model.ResponsePageable.PeoplePageable;
 import com.avatar.startwars.service.FilmService;
@@ -27,7 +28,10 @@ public class PeopleController {
     @GetMapping(value = "/{id}")
     public String searchCharacter(@PathVariable("id") String id, Model model) throws Exception {
         People character = peopleService.getPeopleByUrl(null, id);
+        List<Movie> films = filmService.getAllFilms(character.films);
         model.addAttribute("character", character);
+        model.addAttribute("films", films);
+        // model.addAttribute("films", films);
         // model.addAttribute("people", people);
         return "character";
     }
@@ -46,6 +50,10 @@ public class PeopleController {
             Model model) {
         PeoplePageable pageable = peopleService.getPeoplePageable(page);
         List<People> people = pageable.getResults();
+        // List<String> films = filmService.getMovie(url, id);
+        // List<String> species; 
+        // List<String> vehicles;
+        // List<String> starships;
         model.addAttribute("pageable", pageable);
         model.addAttribute("people", people);
         return "characters";

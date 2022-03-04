@@ -1,6 +1,8 @@
-<%@ page session="false"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
-uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ page import="java.util.List"%>
+<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.List"%>
 <style type="text/css">
   @import url("//db.onlinewebfonts.com/c/0c724f6aa457310440cf8949c615cbd7?family=Star+Jedi");
   h2 {
@@ -27,11 +29,13 @@ uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ page import="java.util.List"%>
     episode_id<span></span> : ${movies.get(1).title}
     <br />
     <c:forEach var="i" begin="0" end="${films.count-1}">
-        <!-- <button type="button" class="collapsible">${movies[i].title}</button> -->
-        <!-- <div class="content"> -->
-            <h2><a href="http://localhost:8080/movies/${i+1}">${movies[i].title}></a></h2>
-            <p>"${movies[i].opening_crawl}</p>
-        <!-- </div> -->
+      <!-- <button type="button" class="collapsible">${movies[i].title}</button> -->
+      <!-- <div class="content"> -->
+      <h2>
+        <a href="http://localhost:8080/movies/${i+1}">${movies[i].title}></a>
+      </h2>
+      <p>"${movies[i].opening_crawl}</p>
+      <!-- </div> -->
     </c:forEach>
   </body>
 </html>
