@@ -7,7 +7,7 @@ Entre sus funciones se encuentran:
 - Visualización de planetas que aparecen en Starwars
 - Búsqueda de Personajes por nombre
 - Búsqueda de Planetas por nombre
-- Navegabilidad entre 
+- Navegabilidad entre films y personajes
 ## API´s
 ### SWAPI
 Documentación de la API:
