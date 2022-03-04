@@ -2,10 +2,11 @@ package com.avatar.startwars.controller;
 
 import java.util.List;
 
-import com.avatar.startwars.model.FilmList;
 import com.avatar.startwars.model.Movie;
 import com.avatar.startwars.model.People;
-import com.avatar.startwars.service.StarWarsService;
+import com.avatar.startwars.model.ResponsePageable.FilmList;
+import com.avatar.startwars.service.PeopleService;
+import com.avatar.startwars.service.FilmService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,13 +19,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/movies")
 public class MovieController {
     @Autowired
-    StarWarsService service;
+    FilmService filmService;
+
+    @Autowired
+    PeopleService peopleService;
 
     @GetMapping(value = "/{id}")
     public String buscarPelicula(@PathVariable("id") String id, Model model) throws Exception {
 
-        Movie movie = service.getMovie(id);
-        List<People> people = service.getAllPeople(movie.characters);
+        Movie movie = filmService.getMovie(id);
+        List<People> people = peopleService.getAllPeople(movie.characters);
         model.addAttribute("movie", movie);
         model.addAttribute("people", people);
         return "movie";
@@ -33,7 +37,7 @@ public class MovieController {
     @GetMapping
     public String verFilms(Model model) throws Exception {
 
-        FilmList films = service.getFilms();
+        FilmList films = filmService.getFilms();
         List<Movie> movies = films.getResults();
         model.addAttribute("films", films);
         model.addAttribute("movies", movies);

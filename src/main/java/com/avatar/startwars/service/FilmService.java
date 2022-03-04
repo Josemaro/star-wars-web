@@ -3,9 +3,9 @@ package com.avatar.startwars.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.avatar.startwars.model.FilmList;
 import com.avatar.startwars.model.Movie;
 import com.avatar.startwars.model.People;
+import com.avatar.startwars.model.ResponsePageable.FilmList;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class StarWarsService {
+public class FilmService {
     RestTemplate response = new RestTemplate();
     // SWAPI
     // https://swapi.dev/
@@ -27,13 +27,6 @@ public class StarWarsService {
             .scheme("https")
             .host("swapi.dev/")
             .path("api/films/")
-            .build();
-
-    // https://swapi.dev/api/people/1/
-    UriComponents uriPeople = UriComponentsBuilder.newInstance()
-            .scheme("https")
-            .host("swapi.dev/")
-            .path("api/people/")
             .build();
 
     public FilmList getFilms() {
@@ -69,30 +62,5 @@ public class StarWarsService {
         return movie;
     }
 
-    public List<People> getAllPeople(List<String> characters) {
-        return characters.stream().map(
-                (p) -> getPeopleByUnit(p)).collect(Collectors.toList());
-    }
 
-    public People getPeopleByUnit(String url) {
-        ResponseEntity<People> entity = response.getForEntity(url, People.class);
-        People people = People.builder()
-                .name(entity.getBody().getName())
-                .height(entity.getBody().getHeight())
-                .mass(entity.getBody().getMass())
-                .hair_color(entity.getBody().getHair_color())
-                .skin_color(entity.getBody().getSkin_color())
-                .eye_color(entity.getBody().getEye_color())
-                .birth_year(entity.getBody().getBirth_year())
-                .gender(entity.getBody().getGender())
-                .homeworld(entity.getBody().getHomeworld())
-                .films(entity.getBody().getFilms())
-                .vehicles(entity.getBody().getVehicles())
-                .starships(entity.getBody().getStarships())
-                .edited(entity.getBody().getEdited())
-                .url(entity.getBody().getUrl())
-                .build();
-
-        return people;
-    }
 }

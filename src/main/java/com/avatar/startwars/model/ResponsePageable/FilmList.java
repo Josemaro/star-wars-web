@@ -1,6 +1,8 @@
-package com.avatar.startwars.model;
+package com.avatar.startwars.model.ResponsePageable;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import com.avatar.startwars.model.Movie;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FilmList {
     private int count;
-    private ArrayList<Movie> results;
+    private List<Movie> results;
     private String previous;
     private String next;
 }
