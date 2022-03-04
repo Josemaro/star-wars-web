@@ -3,22 +3,24 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.ArrayList"%>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
 <style type="text/css">
     @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
     h2{
         font-family: Righteous;
     }
-
+    
     body{
         background-color: rgb(208, 247, 211);
     }
-
-   * {
+    
+    * {
        box-sizing: border-box;
      }
-
-
+    
+    
      
      /* Float four columns side by side */
      .column {
@@ -55,14 +57,14 @@
        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
        transition: all .2s ease;
      }
-
+    
      .card:hover{
        box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
        background-color: rgb(180, 235, 248);
        transform: translateY(-5px);
        z-index: 1;
      }
-
+    
      .btn-group button {
        background-color: #04AA6D; /* Green background */
        border: 2px solid green; /* Green border */
@@ -86,15 +88,15 @@
      /* Add a background color on hover */
      .btn-group button:hover {
        background-color: #00eb08;
-
+    
      }
-
+    
      .center {
        margin: auto;
        width: 60%;
        padding: 10px;
      }
-
+    
      .boton {
        background-color: #04AA6D; /* Green background */
        border: 2px solid black; /* Green border */
@@ -107,7 +109,7 @@
        background-color: #333;
        overflow: hidden;
      }
-
+    
      /* Style the links inside the navigation bar */
      .topnav a {
        float: left;
@@ -117,13 +119,13 @@
        text-decoration: none;
        font-size: 17px;
      }
-
+    
      /* Change the color of links on hover */
      .topnav a:hover {
        background-color: #ddd;
        color: black;
      }
-
+    
      /* Add a color to the active/current link */
      .topnav a.active {
        background-color: #04AA6D;
@@ -134,27 +136,25 @@
 <html>
     <body>
         <div class="topnav">
-            <a class="active" href="movies">Inicio</a>
-            <form class="a" action="pokemon" align="right" style="margin-right: 10px;margin-top: 11px">
-              <input type="text" id="name" name="name" placeholder="Nombre o Id" />
+            <a class="active" href="http://localhost:8080/">Inicio</a>
+            <a class="inactive" href="http://localhost:8080/movies/">Movies</a>
+            <a class="inactive" href="http://localhost:8080/people/">Characters</a>
+            <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
+            <form class="a" action="search" align="right" style="margin-right: 10px;margin-top: 11px">
+              <input type="search" id="search" name="name" placeholder="nombre" />
               <input type="submit" value="Buscar"/>
             </form>
         </div>
         <div>
             <c:forEach var="i" begin="0" end="${pageable.results.size()-1}">
-                <div class="row">
                     <div class="column">
                         <div class="card">
-                            <!-- <img src=${pokelist[i].img} width="170" height="170"> -->
                             <h2>${people[i].name}</h2>
-                            <!-- <a href='http://localhost:8080/people/${(param.page-1)*10+i+1}' class="btn btn-info">Ver Detalle</a> -->
                             <c:set var = "string1" value = "${people[i].url}"/>
                             <c:set var = "string2" value = "${fn:substring(string1, 29, 31)}" />                      
                             <a href='http://localhost:8080/people/${string2}' class="btn btn-info">Ver Detalle</a>
-                        </div>
-                        <!-- ${i} -->
-                        <!-- ${pokePage.count/pokePage.results.size()} -->
-                    </div>
+                      </div>
+                  </div>
             </c:forEach>
         </div>
 

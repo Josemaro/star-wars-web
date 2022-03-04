@@ -58,4 +58,17 @@ public class PeopleController {
         model.addAttribute("people", people);
         return "characters";
     }
+    @GetMapping("/search")
+    public String searchPeople(@RequestParam(value = "name", defaultValue = "Luke", required = true) String name,
+            Model model) {
+        PeoplePageable pageable = peopleService.search(name);
+        List<People> people = pageable.getResults();
+        // List<String> films = filmService.getMovie(url, id);
+        // List<String> species; 
+        // List<String> vehicles;
+        // List<String> starships;
+        model.addAttribute("pageable", pageable);
+        model.addAttribute("people", people);
+        return "characters";
+    }
 }

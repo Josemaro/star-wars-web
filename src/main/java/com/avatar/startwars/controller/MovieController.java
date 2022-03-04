@@ -1,6 +1,8 @@
 package com.avatar.startwars.controller;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.avatar.startwars.model.Movie;
 import com.avatar.startwars.model.People;
@@ -38,7 +40,7 @@ public class MovieController {
     public String verFilms(Model model) throws Exception {
 
         FilmList films = filmService.getFilms();
-        List<Movie> movies = films.getResults();
+        List<Movie> movies = films.getResults().stream().sorted(Comparator.comparing(Movie::getEpisode_id)).collect(Collectors.toList());
         model.addAttribute("films", films);
         model.addAttribute("movies", movies);
         return "films";
