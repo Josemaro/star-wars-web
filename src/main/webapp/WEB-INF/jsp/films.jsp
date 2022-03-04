@@ -25,7 +25,10 @@
        box-sizing: border-box;
      }
     
-    
+    a:hover{
+      color: #ffffff;
+      background-color: brown;
+    }
      
      /* Float four columns side by side */
      .column {
@@ -182,7 +185,7 @@
         <h2>
           <c:set var = "string1" value = "${movies[i].url}"/>
           <c:set var = "string2" value = "${fn:substring(string1, 28, 31)}" />   
-        <a href="http://localhost:8080/movies/${string2}" style="text-decoration: none; color: #4bd5ee;">${movies[i].title}</a>
+        <a href="http://localhost:8080/movies/${string2}" style="text-decoration: none; color: #4bd5ee; ">${movies[i].title}</a>
 
         </h2>
         <div class="description-container">
