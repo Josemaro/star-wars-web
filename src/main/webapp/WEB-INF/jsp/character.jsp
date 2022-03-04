@@ -149,17 +149,17 @@ import="java.util.ArrayList"%>
       <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
     </div>
     <div style="font-family: Righteous; margin-left: 25;">
-      <h1 style="font-size: 45px;font-family: 'SF Distant Galaxy', sans-serif;">${character.name}</h1>
+      <h1 style="font-size: 45px;font-family: 'SF Distant Galaxy', sans-serif;">${character.name} &#129505;</h1>
       <br>
       <p style="font-size: 30px; margin-left: 25px">
-        HEIGHT: ${character.height}<br></br>
-        MASS: ${character.mass}<br></br>
-        HAIR COLOR: ${character.hair_color}<br></br>
-        SKIN COLOR: ${character.skin_color}<br></br>
-        EYE COLOR: ${character.eye_color}<br></br>
-        BIRTH YEAR: ${character.birth_year}<br></br>
-        GENDER: ${character.gender}<br></br>
-        HOMEWORLD: ${character.homeworld}<br></br>
+        HEIGHT: ${character.height} &#9977;<br></br>
+        MASS: ${character.mass}&#9875;<br></br>
+        HAIR COLOR: ${character.hair_color}&#128134<br></br>
+        SKIN COLOR: ${character.skin_color}&#129502;<br></br>
+        EYE COLOR: ${character.eye_color}  &#128064;<br></br>
+        BIRTH YEAR: ${character.birth_year}&#128198; <br></br>
+        GENDER: ${character.gender}&#128302;<br></br>
+        HOMEWORLD: ${character.homeworld} &#127758;<br></br>
       </p>
     </div>
     <div>

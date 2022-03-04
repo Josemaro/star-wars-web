@@ -144,18 +144,14 @@
             <a class="inactive" href="http://localhost:8080/movies/">Movies</a>
             <a class="inactive" href="http://localhost:8080/people/">Characters</a>
             <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
-            <form class="a" action="search" align="right" style="margin-right: 10px;margin-top: 11px">
-              <input type="search" id="search" name="name" placeholder="nombre" />
-              <input type="submit" value="Buscar"/>
-            </form>
         </div>
         <div style="font-family: Righteous; margin-left: 25;">
           <h1 style="font-size: 45px;font-family: 'SF Distant Galaxy', sans-serif;">${movie.title}</h1>
           <br>
           <p style="font-size: 30px; margin-left: 25px">
-            EPISODE ${movie.episode_id}<br></br>
-            DIRECTOR: ${movie.director}<br></br>
-            PRODUCER: ${movie.producer}<br></br>
+            EPISODE ${movie.episode_id} &#127916;<br></br>
+            DIRECTOR: ${movie.director} &#127941;<br></br>
+            PRODUCER: ${movie.producer} &#129505;<br></br>
             ${movie.opening_crawl}<br></br>
           </p>
         </div>
