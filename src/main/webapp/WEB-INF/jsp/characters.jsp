@@ -172,7 +172,7 @@ import="java.util.ArrayList"%>
       </div>
     </div>
     <h2>Total ${pageable.count}</h2>
-    <h2>Total elements showed: ${pageable.results.size()}</h2>
+    <h2>Showed Elements: ${pageable.results.size()}</h2>
     <br>
     <div style="margin-left: 50px;">
       <c:set var="pagina" value="${pageable.count}" />
