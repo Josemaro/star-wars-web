@@ -1,4 +1,4 @@
-package com.avatar.startwars.model;
+package com.avatar.startwars.model.others;
 
 import java.util.List;
 

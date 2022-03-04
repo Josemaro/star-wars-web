@@ -24,6 +24,7 @@ public class PeopleService {
             .host("swapi.dev/")
             .path("api/people/")
             .build();
+    /// api/people/?search=r2
 
     public List<People> getAllPeople(List<String> characters) {
         return characters.stream().map(
@@ -56,15 +57,26 @@ public class PeopleService {
         return people;
     }
 
-    
-    public PeoplePageable getPeoplePageable(String page){
-        ResponseEntity<PeoplePageable> entity = response.getForEntity(uriPeople.toUriString()+"?page="+page,PeoplePageable.class);
+    public PeoplePageable getPeoplePageable(String page) {
+        ResponseEntity<PeoplePageable> entity = response.getForEntity(uriPeople.toUriString() + "?page=" + page,
+                PeoplePageable.class);
         PeoplePageable pp = new PeoplePageable();
         pp.setCount(entity.getBody().getCount());
         pp.setNext(entity.getBody().getNext());
         pp.setPrevious(entity.getBody().getPrevious());
         pp.setResults(entity.getBody().getResults());
-        
+
+        return pp;
+    }
+
+    public PeoplePageable search(String name){
+        ResponseEntity<PeoplePageable> entity = response.getForEntity(uriPeople.toUriString() + "?search=" + name,
+        PeoplePageable.class);
+        PeoplePageable pp = new PeoplePageable();
+        pp.setCount(entity.getBody().getCount());
+        pp.setNext(entity.getBody().getNext());
+        pp.setPrevious(entity.getBody().getPrevious());
+        pp.setResults(entity.getBody().getResults());
         return pp;
     }
 }
