@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.avatar.startwars.model.Movie;
-import com.avatar.startwars.model.People;
 import com.avatar.startwars.model.ResponsePageable.FilmList;
 
 import org.springframework.http.ResponseEntity;

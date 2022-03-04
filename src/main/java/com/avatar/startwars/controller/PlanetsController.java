@@ -2,13 +2,8 @@ package com.avatar.startwars.controller;
 
 import java.util.List;
 
-import com.avatar.startwars.model.Movie;
-import com.avatar.startwars.model.People;
-import com.avatar.startwars.model.ResponsePageable.PeoplePageable;
 import com.avatar.startwars.model.ResponsePageable.PlanetPageable;
 import com.avatar.startwars.model.others.Planet;
-import com.avatar.startwars.service.FilmService;
-import com.avatar.startwars.service.PeopleService;
 import com.avatar.startwars.service.PlanetService;
 
 import org.springframework.beans.factory.annotation.Autowired;

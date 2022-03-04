@@ -12,10 +12,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 public class PeopleService {
     RestTemplate response = new RestTemplate();
     // https://swapi.dev/api/people/1/

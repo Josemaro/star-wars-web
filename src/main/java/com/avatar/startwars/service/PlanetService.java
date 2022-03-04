@@ -3,7 +3,6 @@ package com.avatar.startwars.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.avatar.startwars.model.People;
 import com.avatar.startwars.model.ResponsePageable.PlanetPageable;
 import com.avatar.startwars.model.others.Planet;
 
@@ -13,10 +12,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import lombok.extern.slf4j.Slf4j;
+
 
 @Service
-@Slf4j
 public class PlanetService {
     RestTemplate response = new RestTemplate();
     // https://swapi.dev/api/people/1/
