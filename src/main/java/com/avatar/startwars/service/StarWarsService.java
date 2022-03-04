@@ -3,6 +3,7 @@ package com.avatar.startwars.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.avatar.startwars.model.FilmList;
 import com.avatar.startwars.model.Movie;
 import com.avatar.startwars.model.People;
 
@@ -35,6 +36,16 @@ public class StarWarsService {
             .path("api/people/")
             .build();
 
+    public FilmList getFilms() {
+        ResponseEntity<FilmList> entity = response.getForEntity(uriFilms.toUriString(), FilmList.class);
+        FilmList films = FilmList.builder()
+                .results(entity.getBody().getResults())
+                .count(entity.getBody().getCount())
+                .build();
+        // log.info("{}", films);
+        return films;
+    }
+
     public Movie getMovie(String id) {
         ResponseEntity<Movie> entity = response.getForEntity(uriFilms.toUriString() + id, Movie.class);
         Movie movie = Movie.builder()
@@ -53,7 +64,7 @@ public class StarWarsService {
                 .url(entity.getBody().getUrl())
                 // .people(getAllPeople(entity.getBody().getCharacters()))
                 .build();
-        
+
         log.info("{}", movie);
         return movie;
     }
