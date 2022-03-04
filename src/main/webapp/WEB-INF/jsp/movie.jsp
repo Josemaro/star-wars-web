@@ -165,9 +165,9 @@
         <c:forEach var="i" begin="0" end="${people.size()-1}">
                     <div class="column">
                         <div class="card">
-                            <h2>                            <a href='http://localhost:8080/people/${string2}' >${people[i].name}</a></h2>
-                            <c:set var = "string1" value = "${people[i].url}"/>
-                            <c:set var = "string2" value = "${fn:substring(string1, 29, 31)}" />                      
+                          <c:set var = "string1" value = "${people[i].url}"/>
+                          <c:set var = "string2" value = "${fn:substring(string1, 29, 31)}" />                
+                          <h2> <a href='http://localhost:8080/people/${string2}' >${people[i].name}</a></h2>
                         </div>
                     </div>
                 </div>

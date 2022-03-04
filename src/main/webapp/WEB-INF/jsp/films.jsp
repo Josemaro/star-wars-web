@@ -180,7 +180,10 @@
       <!-- <button type="button" class="collapsible">${movies[i].title}</button> -->
       <!-- <div class="content"> -->
         <h2>
-        <a href="http://localhost:8080/movies/${i+1}" style="text-decoration: none; color: #4bd5ee;">${movies[i].title}</a>
+          <c:set var = "string1" value = "${movies[i].url}"/>
+          <c:set var = "string2" value = "${fn:substring(string1, 28, 31)}" />   
+        <a href="http://localhost:8080/movies/${string2}" style="text-decoration: none; color: #4bd5ee;">${movies[i].title}</a>
+
         </h2>
         <div class="description-container">
           <p style="text-align: center; font-size: 20px; font-weight: bold; font-family: 'SF Distant Galaxy', sans-serif;">EPISODE ${movies[i].episode_id}</p>
