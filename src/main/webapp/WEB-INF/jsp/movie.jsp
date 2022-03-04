@@ -153,18 +153,32 @@
             DIRECTOR: ${movie.director} &#127941;<br></br>
             PRODUCER: ${movie.producer} &#129505;<br></br>
             ${movie.opening_crawl}<br></br>
+            ${planets.size()}
           </p>
+        </div>
+        <h2>PLANETS</h2>
+        <div>
+            <c:forEach var="i" begin="0" end="${planets.size()-1}">
+              <div class="row"> 
+                  <div class="column">
+                      <div class="card">
+                            <c:set var = "string1" value = "${people[i].url}"/>
+                            <c:set var = "string2" value = "${fn:substring(string1, 29, 31)}" />                
+                            <h2> <a href='http://localhost:8080/planets/${string2}' >${planets[i].name} &#127758;</a></h2>
+                      </div>
+                  </div>
+              </div>
+          </c:forEach>
         </div>
         <div>
         <h2>CHARACTERS</h2>
         </div>
         <c:forEach var="i" begin="0" end="${people.size()-1}">
-                    <div class="column">
-                        <div class="card">
+                <div class="column">
+                    <div class="card">
                           <c:set var = "string1" value = "${people[i].url}"/>
                           <c:set var = "string2" value = "${fn:substring(string1, 29, 31)}" />                
                           <h2> <a href='http://localhost:8080/people/${string2}' >${people[i].name}</a></h2>
-                        </div>
                     </div>
                 </div>
         </c:forEach>
