@@ -5,8 +5,10 @@ import java.util.List;
 import com.avatar.startwars.model.Movie;
 import com.avatar.startwars.model.People;
 import com.avatar.startwars.model.ResponsePageable.PeoplePageable;
+import com.avatar.startwars.model.others.Planet;
 import com.avatar.startwars.service.FilmService;
 import com.avatar.startwars.service.PeopleService;
+import com.avatar.startwars.service.PlanetService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,35 +27,27 @@ public class PeopleController {
     @Autowired
     PeopleService peopleService;
 
+    @Autowired
+    PlanetService planetService;
+
     @GetMapping(value = "/{id}")
     public String searchCharacter(@PathVariable("id") String id, Model model) throws Exception {
         People character = peopleService.getPeopleByUrl(null, id);
         List<Movie> films = filmService.getAllFilms(character.films);
+        Planet planet = planetService.getPlanetByUrl(character.homeworld,null);
         model.addAttribute("character", character);
         model.addAttribute("films", films);
+        model.addAttribute("planet",planet);
         // model.addAttribute("films", films);
         // model.addAttribute("people", people);
         return "character";
     }
-
-    // @GetMapping
-    // public String allCharacter(Model model) throws Exception {
-    // // FilmList films = peopleService.getFilms();
-    // // List<Movie> movies = films.getResults();
-    // // model.addAttribute("films", films);
-    // // model.addAttribute("movies", movies);
-    // return "characters";
-    // }
 
     @GetMapping
     public String peoplePageable(@RequestParam(value = "page", defaultValue = "1", required = true) String page,
             Model model) {
         PeoplePageable pageable = peopleService.getPeoplePageable(page);
         List<People> people = pageable.getResults();
-        // List<String> films = filmService.getMovie(url, id);
-        // List<String> species; 
-        // List<String> vehicles;
-        // List<String> starships;
         model.addAttribute("pageable", pageable);
         model.addAttribute("people", people);
         return "characters";
@@ -63,10 +57,6 @@ public class PeopleController {
             Model model) {
         PeoplePageable pageable = peopleService.search(name);
         List<People> people = pageable.getResults();
-        // List<String> films = filmService.getMovie(url, id);
-        // List<String> species; 
-        // List<String> vehicles;
-        // List<String> starships;
         model.addAttribute("pageable", pageable);
         model.addAttribute("people", people);
         return "characters";

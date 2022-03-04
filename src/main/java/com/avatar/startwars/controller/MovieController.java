@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 import com.avatar.startwars.model.Movie;
 import com.avatar.startwars.model.People;
 import com.avatar.startwars.model.ResponsePageable.FilmList;
+import com.avatar.startwars.model.others.Planet;
 import com.avatar.startwars.service.PeopleService;
+import com.avatar.startwars.service.PlanetService;
 import com.avatar.startwars.service.FilmService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +28,18 @@ public class MovieController {
     @Autowired
     PeopleService peopleService;
 
+    @Autowired
+    PlanetService planetService;
+
     @GetMapping(value = "/{id}")
     public String buscarPelicula(@PathVariable("id") String id, Model model) throws Exception {
 
         Movie movie = filmService.getMovie(null,id);
         List<People> people = peopleService.getAllPeople(movie.characters);
+        List<Planet> planets = planetService.getAllPlanets(movie.planets);
         model.addAttribute("movie", movie);
         model.addAttribute("people", people);
+        model.addAttribute("planets", planets);
         return "movie";
     }
 

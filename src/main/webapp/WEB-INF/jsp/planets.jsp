@@ -145,7 +145,7 @@ import="java.util.ArrayList"%>
       <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
       <form
         class="a"
-        action="/people/search"
+        action="/planets/search"
         align="right"
         style="margin-right: 10px; margin-top: 11px"
       >
@@ -158,11 +158,11 @@ import="java.util.ArrayList"%>
       <c:forEach var="i" begin="0" end="${pageable.results.size()-1}">
         <div class="column">
           <div class="card">
-            <h2>${people[i].name} &#128125;</h2>
-            <c:set var="string1" value="${people[i].url}" />
-            <c:set var="string2" value="${fn:substring(string1, 29, 31)}" />
+            <h2>${planets[i].name} &#127758;</h2>
+            <c:set var="string1" value="${planets[i].url}" />
+            <c:set var="string2" value="${fn:substring(string1, 30, 32)}" />
             <a
-              href="http://localhost:8080/people/${string2}"
+              href="http://localhost:8080/planets/${string2}"
               class="btn btn-info"
               >Ver Detalle</a
             >
@@ -176,9 +176,9 @@ import="java.util.ArrayList"%>
     <br>
     <div style="margin-left: 50px;">
       <c:set var="pagina" value="${pageable.count}" />
-      <c:forEach var="i" begin="1" end="${(pageable.count/10)+1}">
+      <c:forEach var="i" begin="1" end="${(pageable.count/10)}">
         <a
-          href="http://localhost:8080/people?page=${i}"
+          href="http://localhost:8080/planets?page=${i}"
           style="width: 10%"
           class="btn btn-success"
           >${i}</a

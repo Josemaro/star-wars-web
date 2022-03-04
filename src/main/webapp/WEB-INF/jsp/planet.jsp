@@ -1,14 +1,11 @@
-<%@ page session="false"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
-uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix = "fn" uri =
-"http://java.sun.com/jsp/jstl/functions"%> <%@ page
-import="java.util.ArrayList"%>
+<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.ArrayList"%>
 
-<link
-  rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-/>
-<link rel="stylesheet" type="text/css" href="../css/mainstyle.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
 <style type="text/css">
   @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
   @import url('http://fonts.cdnfonts.com/css/sf-distant-galaxy');
@@ -141,47 +138,20 @@ import="java.util.ArrayList"%>
 </style>
 
 <html>
-  <body>
-    <div class="topnav">
-      <a class="active" href="http://localhost:8080/">Inicio</a>
-      <a class="inactive" href="http://localhost:8080/movies/">Movies</a>
-      <a class="inactive" href="http://localhost:8080/people/">Characters</a>
-      <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
-    </div>
-    <div style="font-family: Righteous; margin-left: 25;">
-      <h1 style="font-size: 45px;font-family: 'SF Distant Galaxy', sans-serif;">${character.name} &#129505;</h1>
-      <br>
-      <p style="font-size: 30px; margin-left: 25px">
-        HEIGHT: ${character.height} &#9977;<br></br>
-        MASS: ${character.mass}&#9875;<br></br>
-        HAIR COLOR: ${character.hair_color}&#128134<br></br>
-        SKIN COLOR: ${character.skin_color}&#129502;<br></br>
-        EYE COLOR: ${character.eye_color}  &#128064;<br></br>
-        BIRTH YEAR: ${character.birth_year}&#128198; <br></br>
-        GENDER: ${character.gender}&#128302;<br></br>
-        HOMEWORLD: 
-      </p>
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-            <c:set var = "string1" value = "${planet.url}"/>
-            <c:set var = "string2" value = "${fn:substring(string1, 30, 32)}" />  
-            <h2><a href='http://localhost:8080/planets/${string2}' >${planet.name} &#127758;</a></h2>                      
+    <body>
+        <div class="topnav">
+            <a class="active" href="http://localhost:8080/">Inicio</a>
+            <a class="inactive" href="http://localhost:8080/movies/">Movies</a>
+            <a class="inactive" href="http://localhost:8080/people/">Characters</a>
+            <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
         </div>
-      </div>
-    </div>
-    <div>
-    <h2>FILMS</h2>
-    </div>
-    <c:forEach var="i" begin="0" end="${films.size()-1}">
-                <div class="column">
-                    <div class="card">
-                        <c:set var = "string1" value = "${films[i].url}"/>
-                       <c:set var = "string2" value = "${fn:substring(string1, 28, 31)}" />  
-                        <h2><a href='http://localhost:8080/movies/${string1}' >${films[i].title}</a></h2>                      
-                    </div>
-                </div>
-    </c:forEach>
-  </body>
+        <div style="font-family: Righteous; margin-left: 25;">
+          <h1 style="font-size: 45px;font-family: 'SF Distant Galaxy', sans-serif;">${movie.title}</h1>
+          <br>
+          <p style="font-size: 30px; margin-left: 25px">
+            CLIMATE ${planet.climate} &#127916;<br></br>
+            DIAMETER: ${planet.diameter} &#127941;<br></br>
+          </p>
+        </div>
+    </body>
 </html>
