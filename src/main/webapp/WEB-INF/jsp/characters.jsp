@@ -145,7 +145,7 @@ import="java.util.ArrayList"%>
       <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
       <form
         class="a"
-        action="search"
+        action="/people/search"
         align="right"
         style="margin-right: 10px; margin-top: 11px"
       >
