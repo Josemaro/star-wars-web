@@ -163,7 +163,7 @@ import="java.util.ArrayList"%>
       </p>
     </div>
     <div>
-    <h2>WORLDS</h2>
+    <h2>FILMS</h2>
     </div>
     <c:forEach var="i" begin="0" end="${films.size()-1}">
                 <div class="column">
