@@ -146,11 +146,14 @@
             <a class="inactive" href="http://localhost:8080/planets/">Planets</a>
         </div>
         <div style="font-family: Righteous; margin-left: 25;">
-          <h1 style="font-size: 45px;font-family: 'SF Distant Galaxy', sans-serif;">${movie.title}</h1>
+          <h1 style="font-size: 45px;font-family: 'SF Distant Galaxy', sans-serif;">${planet.name}</h1>
           <br>
           <p style="font-size: 30px; margin-left: 25px">
-            CLIMATE ${planet.climate} &#127916;<br></br>
-            DIAMETER: ${planet.diameter} &#127941;<br></br>
+            GRAVITY: ${planet.gravity} &#127941;<br></br>
+            CLIMATE: ${planet.climate} &#127749;<br></br>
+            POPULATION: ${planet.population} &#127760;<br></br>
+            ORBITAL PERIOD: ${planet.orbital_period} &#127756;<br></br>
+            TERRAIN: ${planet.terrain}  &#127748;<br></br>
           </p>
         </div>
     </body>

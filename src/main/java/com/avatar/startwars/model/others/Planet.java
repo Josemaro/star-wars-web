@@ -21,7 +21,7 @@ public class Planet {
     public String orbital_period;
     public String population;
     public List<String> residents;
-    public String rotation_period;
+    public int rotation_period;
     public String surface_water;
     public String terrain;
     public String url;
